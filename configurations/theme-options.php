@@ -97,17 +97,6 @@ if ( class_exists( 'CSF' ) ) {
 				'text_width' => 80,
 				'default'    => true
 			),
-
-			// Show cart
-			array(
-				'id'         => 'opt_menu_cart',
-				'type'       => 'switcher',
-				'title'      => esc_html__( 'Cart', 'smartcity' ),
-				'text_on'    => esc_html__( 'Yes', 'smartcity' ),
-				'text_off'   => esc_html__( 'No', 'smartcity' ),
-				'text_width' => 80,
-				'default'    => true
-			),
 		)
 	) );
 
@@ -227,77 +216,6 @@ if ( class_exists( 'CSF' ) ) {
 					),
 				)
 			),
-		)
-	) );
-
-	//
-	//  Create a section shop
-	CSF::createSection( $smartcity_prefix, array(
-		'id'    => 'opt_shop_section',
-		'title'  => esc_html__( 'Shop', 'smartcity' ),
-		'icon'   => 'fas fa-shopping-cart',
-	) );
-
-	// Category product
-	CSF::createSection( $smartcity_prefix, array(
-		'parent' => 'opt_shop_section',
-		'title'  => esc_html__( 'Category', 'smartcity' ),
-		'description' => esc_html__( 'Use for shop category and tag', 'smartcity' ),
-		'fields' => array(
-			// Sidebar
-			array(
-				'id'      => 'opt_shop_cat_sidebar_position',
-				'type'    => 'select',
-				'title'   => esc_html__( 'Sidebar position', 'smartcity' ),
-				'options' => array(
-					'hide'  => esc_html__( 'Hide', 'smartcity' ),
-					'left'  => esc_html__( 'Left', 'smartcity' ),
-					'right' => esc_html__( 'Right', 'smartcity' ),
-				),
-				'default' => 'left'
-			),
-
-			// Limit
-			array(
-				'id'      => 'opt_shop_cat_limit',
-				'type'    => 'number',
-				'title'   => esc_html__( 'Limit Product', 'smartcity' ),
-				'default' => 12,
-			),
-
-			// Per Row
-			array(
-				'id'      => 'opt_shop_cat_per_row',
-				'type'    => 'select',
-				'title'   => esc_html__( 'Products Per Row', 'smartcity' ),
-				'options' => array(
-					'3' => esc_html__( '3 Column', 'smartcity' ),
-					'4' => esc_html__( '4 Column', 'smartcity' ),
-					'5' => esc_html__( '5 Column', 'smartcity' ),
-				),
-				'default' => '4'
-			),
-		)
-	) );
-
-	// Single product
-	CSF::createSection( $smartcity_prefix, array(
-		'parent' => 'opt_shop_section',
-		'title'  => esc_html__( 'Single', 'smartcity' ),
-		'description' => esc_html__( 'Use for single product', 'smartcity' ),
-		'fields' => array(
-			// Sidebar
-			array(
-				'id'      => 'opt_shop_single_sidebar_position',
-				'type'    => 'select',
-				'title'   => esc_html__( 'Sidebar position', 'smartcity' ),
-				'options' => array(
-					'hide'  => esc_html__( 'Hide', 'smartcity' ),
-					'left'  => esc_html__( 'Left', 'smartcity' ),
-					'right' => esc_html__( 'Right', 'smartcity' ),
-				),
-				'default' => 'left'
-			)
 		)
 	) );
 

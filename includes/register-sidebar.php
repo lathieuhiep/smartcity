@@ -17,8 +17,6 @@ function smartcity_widget_registration($name, $id, $description = ''): void {
 
 function smartcity_multiple_widget_init(): void {
 	smartcity_widget_registration( esc_html__('Sidebar Main', 'smartcity'), 'sidebar-main' );
-	smartcity_widget_registration( esc_html__('Sidebar Shop', 'smartcity'), 'sidebar-wc', esc_html__('Display sidebar on page shop.', 'smartcity') );
-	smartcity_widget_registration( esc_html__('Sidebar Product', 'smartcity'), 'sidebar-wc-product', esc_html__('Display sidebar on page single product.', 'smartcity') );
 
 	smartcity_widget_registration( esc_html__('Sidebar Footer Column 1', 'smartcity'), 'sidebar-footer-column-1' );
 	smartcity_widget_registration( esc_html__('Sidebar Footer Column 2', 'smartcity'), 'sidebar-footer-column-2' );
