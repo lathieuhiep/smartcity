@@ -1,5 +1,15 @@
+@import "../variables-site/variables";
+
 * {
   outline: none !important;
+}
+
+:root {
+  --font-body: #{$font-body};
+  --font-size-body: #{$font-size-body};
+  --font-secondary: #{$font-secondary};
+  --color-body: #{$body-color};
+  --font-heading: #{$heading-font-family};
 }
 
 html {

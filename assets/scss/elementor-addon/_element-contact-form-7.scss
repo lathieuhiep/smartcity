@@ -1,0 +1,114 @@
+.element-contact-form-7 {
+  &.style-1 {
+    .warp {
+      color: #ffffff;
+      font-size: 1.4rem;
+      padding: 1.2rem;
+      border-radius: 2rem;
+      background-image: url("../images/bk-form.png");
+      background-repeat: no-repeat;
+      background-size: cover;
+      box-shadow: rgb(0, 0, 0) 5px 15px 20px -15px;
+
+      .thumbnail-box {
+        max-width: 22rem;
+        margin: 0 auto 1.6rem;
+        border: 1px solid #ffffff;
+        box-shadow: rgb(255, 255, 255) 0 15px 20px -15px inset;
+      }
+
+      .heading {
+        text-align: center;
+        color: #ffffff;
+        font-size: 3rem;
+      }
+
+      .list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        .item {
+          font-weight: 700;
+          text-decoration: underline;
+          display: grid;
+          grid-gap: 1.2rem;
+          grid-template-columns: 3.3rem 1fr;
+
+          ~ .item {
+            margin-top: .8rem;
+          }
+        }
+      }
+
+      .wpcf7-form {
+        margin-top: 2rem;
+
+        .grid {
+          display: grid;
+          grid-gap: .4rem;
+          grid-template-columns: 16rem 1fr;
+        }
+
+        input {
+          &:not([type="checkbox"]) {
+            border-radius: .8rem;
+          }
+        }
+
+        .list-check {
+          padding: 2rem .3rem;
+          color: #000;
+          border-radius: 1rem;
+          background-color: #ffffff;
+
+          .wpcf7-form-control-wrap {
+            margin-bottom: 0;
+          }
+
+          .wpcf7-list-item {
+            margin: 0;
+            font-size: 1.4rem;
+
+            label {
+              margin: 0;
+              display: grid;
+              grid-gap: .3rem;
+              grid-template-columns: 1.5rem 1fr;
+            }
+
+            .wpcf7-list-item-label {
+              font-weight: 700;
+            }
+          }
+
+          .wpcf7-checkbox {
+            display: grid;
+            grid-gap: .6rem;
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+
+        .wpcf7-submit {
+          padding: 1rem .6rem;
+          display: block;
+          width: 100%;
+          font-size: 1.3rem;
+          color: #000;
+          font-weight: 700;
+          border-radius: 1.2rem;
+          background-color: #ffde59;
+        }
+
+        .wpcf7-not-valid-tip {
+          color: #ffffff;
+        }
+      }
+
+      .note {
+        margin-top: 1rem;
+        font-style: italic;
+      }
+    }
+  }
+}

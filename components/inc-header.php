@@ -2,6 +2,7 @@
 $sticky_menu = smartcity_get_option( 'opt_menu_sticky', '1' );
 $logo = smartcity_get_option( 'opt_general_logo' );
 $cart = smartcity_get_option( 'opt_menu_cart', '1' );
+$phone = smartcity_get_option( 'opt_general_phone' );
 ?>
 <header class="global-header <?php echo esc_attr( $sticky_menu == '1' ? 'active-sticky-nav' : '' ); ?>">
     <nav class="site-navigation container">
@@ -44,6 +45,13 @@ $cart = smartcity_get_option( 'opt_menu_cart', '1' );
                     </li>
                 </ul>
 			<?php endif; ?>
+        </div>
+
+        <div class="contact-box d-flex align-items-center">
+            <a href="tel:<?php echo esc_attr( clinic_preg_replace_ony_number( $phone ) ); ?>">
+                <i class="fa-solid fa-phone"></i>
+                <span><?php echo esc_html( $phone ); ?></span>
+            </a>
         </div>
     </nav>
 </header>

@@ -1,0 +1,32 @@
+.element-text-editing-group {
+  &__warp {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .item-thumbnail {
+      flex: 0 0 10.7rem;
+    }
+
+    .item {
+      text-align: center;
+
+      ~ .item {
+        margin-left: 2rem;
+      }
+
+      .title {
+        color: #0a3643;
+        font-size: 2.5rem;
+        font-style: italic;
+      }
+
+      .content {
+        font-size: 3.4rem;
+        font-weight: 700;
+        color: #0a3643;
+      }
+    }
+  }
+}

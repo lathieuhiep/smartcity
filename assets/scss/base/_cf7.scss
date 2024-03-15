@@ -1,14 +1,36 @@
+@import "../variables-site/variables";
+
 form {
   &.wpcf7-form {
+    br {
+      display: none;
+    }
+
     p {
       position: relative;
       margin: 0;
+
+      ~ p {
+        margin-top: 1rem;
+      }
 
       span {
         &.ajax-loader {
           position: absolute;
           top: 8px;
         }
+      }
+
+      &:has(span.wpcf7-spinner) {
+        position: relative;
+      }
+
+      .wpcf7-spinner {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
       }
     }
 
@@ -25,7 +47,6 @@ form {
 
       &.wpcf7-form-control-wrap {
         display: block;
-        margin-bottom: 15px;
 
         input,
         textarea {

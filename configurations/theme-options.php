@@ -78,7 +78,16 @@ if ( class_exists( 'CSF' ) ) {
 				'text_width' => 80,
 				'default'    => true
 			),
-		)
+
+            // phone
+            array(
+                'id'      => 'opt_general_phone',
+                'type'    => 'text',
+                'title'   => 'Text',
+                'default' => '1234567890'
+            ),
+
+        )
 	) );
 
 	//

@@ -31,4 +31,3 @@ get_template_part( 'components/inc', 'breadcrumbs' );
 </div>
 
 <?php get_footer(); ?>
-
