@@ -9,7 +9,7 @@ if (!defined('ABSPATH')) {
 	exit; // Exit if accessed directly.
 }
 
-class SmartCity_Elementor_Project_List extends Widget_Base
+class SmartCity_Elementor_Project_List_Style2 extends Widget_Base
 {
 
 	/**
@@ -22,7 +22,7 @@ class SmartCity_Elementor_Project_List extends Widget_Base
 	 */
 	public function get_name(): string
 	{
-		return 'clinic-project-list';
+		return 'clinic-project-list-2';
 	}
 
 	/**
@@ -35,7 +35,7 @@ class SmartCity_Elementor_Project_List extends Widget_Base
 	 */
 	public function get_title(): string
 	{
-		return esc_html__('Danh sách dự án', 'clinic');
+		return esc_html__('Danh sách dự án 2', 'clinic');
 	}
 
 	/**
@@ -116,32 +116,11 @@ class SmartCity_Elementor_Project_List extends Widget_Base
 		);
 
 		$repeater->add_control(
-			'list_image_banner', [
-				'label' => esc_html__( 'Ảnh banner', 'clinic' ),
-				'type' => Controls_Manager::MEDIA,
-				'default' => [
-					'url' => Utils::get_placeholder_image_src(),
-				],
-			]
-		);
-
-		$repeater->add_control(
 			'list_content', [
 				'label' => esc_html__( 'Nội dung', 'clinic' ),
 				'type' => Controls_Manager::WYSIWYG,
 				'default' => esc_html__( 'Nội dung' , 'clinic' ),
 				'show_label' => false,
-			]
-		);
-
-		$repeater->add_control(
-			'list_link',
-			[
-				'label' => esc_html__( 'Link', 'elementor' ),
-				'type' => Controls_Manager::URL,
-				'dynamic' => [
-					'active' => true,
-				],
 			]
 		);
 
@@ -165,8 +144,56 @@ class SmartCity_Elementor_Project_List extends Widget_Base
 			]
 		);
 
-
 		$this->end_controls_section();
+
+		$this->start_controls_section(
+			'popup_contact_section',
+			[
+				'label' => esc_html__( 'Popup liên hệ', 'clinic' ),
+				'tab' => Controls_Manager::TAB_CONTENT,
+			]
+		);
+
+		$this->add_control(
+			'form_title',
+			[
+				'label'         =>  esc_html__( 'Tiêu đề', 'smartcity' ),
+				'type'          =>  Controls_Manager::TEXT,
+				'default'       =>  esc_html__( 'Tiêu đề', 'smartcity' ),
+				'label_block'   =>  true
+			]
+		);
+
+		$this->add_control(
+			'shortcode_form',
+			[
+				'label' => esc_html__('Select Form', 'smartcity'),
+				'type' => Controls_Manager::SELECT,
+				'label_block' => true,
+				'options' => smartcity_get_form_cf7(),
+				'default' => '0',
+			]
+		);
+
+		$this->add_control(
+			'list',
+			[
+				'label' => esc_html__( 'Danh sách', 'clinic' ),
+				'type' => Controls_Manager::REPEATER,
+				'fields' => $repeater->get_controls(),
+				'default' => [
+					[
+						'list_title' => esc_html__( 'Title #1', 'clinic' ),
+						'list_content' => esc_html__( 'Item content. Click the edit button to change this text.', 'clinic' ),
+					],
+					[
+						'list_title' => esc_html__( 'Title #2', 'clinic' ),
+						'list_content' => esc_html__( 'Item content. Click the edit button to change this text.', 'clinic' ),
+					],
+				],
+				'title_field' => '{{{ list_title }}}',
+			]
+		);
 	}
 
 	/**
@@ -179,25 +206,19 @@ class SmartCity_Elementor_Project_List extends Widget_Base
 	protected function render(): void
 	{
 		$settings = $this->get_settings_for_display();
+
+		$id_modal = 'btn-modal-form';
+		if ( $settings['shortcode_form'] ) :
+			$id_int = substr( $this->get_id_int(), 0, 3 );
+			$id_modal = 'btn-modal-form-' . $id_int;
+		endif;
 	?>
-		<div class="element-project-list style-1">
+		<div class="element-project-list style-2">
 			<?php if ( $settings['list'] ) : ?>
 				<div class="warp">
-					<?php
-                    foreach ($settings['list'] as $index => $item):
-	                    $link_key = 'link_' . $index;
-	                    $this->add_link_attributes( $link_key, $item['list_link'] );
-					?>
+					<?php foreach ($settings['list'] as $item): ?>
 						<div class="item elementor-repeater-item-<?php echo esc_attr( $item['_id'] ); ?>">
-                            <a class="link" <?php $this->print_render_attribute_string( $link_key ); ?>></a>
-
-							<div class="thumbnail">
-								<?php if ( $item['list_image_banner'] ) : ?>
-                                    <div class="banner">
-										<?php echo wp_get_attachment_image( $item['list_image_banner']['id'], 'medium' ); ?>
-                                    </div>
-								<?php endif; ?>
-
+                            <div class="thumbnail">
 								<?php echo wp_get_attachment_image( $item['list_image']['id'], 'large', false, array(
                                     'class' => 'image-feature'
                                 ) ); ?>
@@ -211,20 +232,45 @@ class SmartCity_Elementor_Project_List extends Widget_Base
 								<?php echo wpautop( $item['list_content'] ); ?>
 							</div>
 
-							<div class="actions">
-								<p class="sell">
-                                    <?php esc_html_e('ĐANG MỞ BÁN', 'smartcity'); ?>
-                                </p>
-
-                                <p class="detail">
-									<?php esc_html_e('XEM CHI TIẾT', 'smartcity'); ?>
-                                </p>
-							</div>
+                            <?php if ( $settings['shortcode_form'] ) : ?>
+                                <div class="actions">
+                                    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#<?php echo esc_attr( $id_modal ); ?>">
+			                            <?php esc_html_e( 'NHẬN BÁO GIÁ', 'smartcity' ); ?>
+                                    </button>
+                                </div>
+                            <?php endif; ?>
 						</div>
 					<?php endforeach; ?>
 				</div>
 			<?php endif; ?>
 		</div>
+
+		<?php if ( $settings['shortcode_form'] ) : ?>
+        <!-- Modal -->
+        <div class="modal fade modal-project-list" id="<?php echo esc_attr( $id_modal ); ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">
+                            <?php echo esc_html( $settings['form_title'] ); ?>
+                        </h5>
+
+                        <button type="button" class="btn-close-modal" data-bs-dismiss="modal" aria-label="Close">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+
+                    <div class="modal-body">
+	                    <?php echo do_shortcode('[contact-form-7 id="' . $settings['shortcode_form'] . '" ]'); ?>
+
+                        <p class="note-modal">
+                            <?php esc_html_e( '*Báo giá sẽ được gửi ngay đến quý khách qua Ứng dụng Zalo', 'smartcity' ); ?>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+	    <?php endif; ?>
 	<?php
 	}
 }

@@ -19,6 +19,7 @@ function smartcity_setup(): void {
 
 	// Required: options theme
 	require get_theme_file_path( '/configurations/theme-options.php' );
+	require get_theme_file_path( '/includes/theme-get-options.php' );
 
 	/*
 	 * Make theme available for translation.

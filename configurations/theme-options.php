@@ -25,6 +25,7 @@ if ( class_exists( 'CSF' ) ) {
 		'footer_after'        => '<pre>Contact me:<br />Zalo/Phone: 0975458209 - Skype: lathieuhiep - facebook: <a href="https://www.facebook.com/lathieuhiep" target="_blank">lathieuhiep</a></pre>',
 	) );
 
+	//
 	// Create a section general
 	CSF::createSection( $smartcity_prefix, array(
 		'title'  => esc_html__( 'General', 'smartcity' ),
@@ -105,6 +106,28 @@ if ( class_exists( 'CSF' ) ) {
 				'text_off'   => esc_html__( 'No', 'smartcity' ),
 				'text_width' => 80,
 				'default'    => true
+			),
+		)
+	) );
+
+	//
+	// Create a section contact
+	CSF::createSection( $smartcity_prefix, array(
+		'title'  => esc_html__( 'Contact', 'smartcity' ),
+		'icon'   => 'fas fa-bars',
+		'fields' => array(
+			array(
+				'id'     => 'opt_contact_list',
+				'type'   => 'repeater',
+				'title'  => esc_html__('Danh sách form liên hệ'),
+				'fields' => array(
+					array(
+						'id'          => 'contact',
+						'type'        => 'select',
+						'title'       => 'Select',
+						'options'     => smartcity_get_form_cf7()
+					),
+				),
 			),
 		)
 	) );

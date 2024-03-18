@@ -22,6 +22,8 @@ function smartcity_register_widget_elementor_addon( $widgets_manager ): void {
     require get_parent_theme_file_path( '/extension/elementor-addon/widgets/contact-form-7.php' );
     require get_parent_theme_file_path( '/extension/elementor-addon/widgets/project-list.php' );
     require get_parent_theme_file_path( '/extension/elementor-addon/widgets/lightbox-image.php' );
+    require get_parent_theme_file_path( '/extension/elementor-addon/widgets/tabs.php' );
+    require get_parent_theme_file_path( '/extension/elementor-addon/widgets/project-list-2.php' );
 
 //	require get_parent_theme_file_path( '/extension/elementor-addon/widgets/slides.php' );
 //	require get_parent_theme_file_path( '/extension/elementor-addon/widgets/about-text.php' );
@@ -37,6 +39,8 @@ function smartcity_register_widget_elementor_addon( $widgets_manager ): void {
     $widgets_manager->register( new \SmartCity_Elementor_Contact_Form_7() );
     $widgets_manager->register( new \SmartCity_Elementor_Project_List() );
     $widgets_manager->register( new \SmartCity_Elementor_Lightbox_Image() );
+    $widgets_manager->register( new \SmartCity_Elementor_Tabs() );
+	$widgets_manager->register( new \SmartCity_Elementor_Project_List_Style2() );
 
 //	$widgets_manager->register( new \BasicTheme_Elementor_Slides() );
 //	$widgets_manager->register( new \BasicTheme_Elementor_About_Text() );

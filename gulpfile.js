@@ -79,43 +79,14 @@ function buildStylesBootstrap() {
 // Task build js bootstrap
 function buildLibsBootstrapJS() {
     return src([
-        `${pathNodeModule}/bootstrap/js/dist/collapse.js`
-    ])
-        .pipe(babel())
-        .pipe(webpack({
-            mode: 'production',
-            output: {
-                filename: 'bootstrap.js'
-            },
-            module: {
-                rules: [
-                    {
-                        test: /\.js$/,
-                        exclude: /node_modules/,
-                        use: {
-                            loader: 'babel-loader'
-                        }
-                    }
-                ]
-            },
-            optimization: {
-                minimize: true,
-                minimizer: [
-                    new TerserPlugin({
-                        terserOptions: {
-                            output: {
-                                comments: false,
-                            },
-                        },
-                        extractComments: false,
-                    }),
-                ],
-            },
-        }))
+        `${pathNodeModule}/bootstrap/dist/js/bootstrap.bundle.js`
+    ], {allowEmpty: true})
+        .pipe(uglify())
         .pipe(rename({suffix: '.min'}))
         .pipe(dest(`${pathAssets}/libs/bootstrap/`))
         .pipe(browserSync.stream());
 }
+exports.buildLibsBootstrapJS = buildLibsBootstrapJS
 
 /*
 Task build owl carousel

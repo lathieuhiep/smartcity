@@ -24,15 +24,6 @@
       display: flex;
       flex-direction: column;
 
-      .link {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        z-index: 2;
-      }
-
       .thumbnail {
         margin-bottom: 2rem;
         position: relative;
@@ -44,15 +35,6 @@
           height: 100%;
           object-fit: cover;
         }
-      }
-
-      .banner {
-        position: absolute;
-        top: -0.5rem;
-        left: -0.7rem;
-        width: 9.5rem;
-        height: 9.5rem;
-        z-index: 2;
       }
 
       .title {
@@ -78,48 +60,198 @@
             position: relative;
             padding-left: 2.5rem;
 
-            &:before {
-              position: absolute;
-              content: "";
-              top: .3rem;
-              left: 0;
-              @include square(1.8rem);
-              background-image: url("../images/icons/icon-list.svg");
-              background-repeat: no-repeat;
-              background-size: contain;
-            }
-
             ~ li {
               margin-top: .5rem;
             }
           }
         }
       }
+    }
+  }
 
-      .actions {
-        padding-right: .8rem;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+  &.style-1 {
+    .warp {
+      .item {
+        .link {
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          z-index: 2;
+        }
 
-        p {
-          margin: 0;
-          font-weight: 700;
-          font-size: 1.4rem;
+        .banner {
+          position: absolute;
+          top: -0.5rem;
+          left: -0.7rem;
+          width: 9.5rem;
+          height: 9.5rem;
+          z-index: 2;
+        }
 
-          &.sell {
-            padding: 2rem 3rem;
-            color: #ffffff;
-            border-top-right-radius: 3rem;
-            background-color: #043E31;
-          }
-
-          &.detail {
-            padding: .8rem 1.2rem;
-            border-radius: 2rem;
-            border: 1px solid #000;
+        .content {
+          ul {
+            li {
+              &:before {
+                position: absolute;
+                content: "";
+                top: .3rem;
+                left: 0;
+                @include square(1.8rem);
+                background-image: url("../images/icons/icon-list.svg");
+                background-repeat: no-repeat;
+                background-size: contain;
+              }
+            }
           }
         }
+
+        .actions {
+          padding-right: .8rem;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+
+          p {
+            margin: 0;
+            font-weight: 700;
+            font-size: 1.4rem;
+
+            &.sell {
+              padding: 2rem 3rem;
+              color: #ffffff;
+              border-top-right-radius: 3rem;
+              background-color: #043E31;
+            }
+
+            &.detail {
+              padding: .8rem 1.2rem;
+              border-radius: 2rem;
+              border: 1px solid #000;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.style-2 {
+    .warp {
+      .item {
+        .actions {
+          padding: 1.2rem;
+          text-align: center;
+
+          .btn {
+            padding: .8rem 1.6rem;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #000;
+            border: none;
+            border-radius: .6rem;
+            background-color: #ffb453;
+          }
+        }
+      }
+    }
+  }
+}
+
+.modal-project-list {
+  .modal-dialog {
+    max-width: 45rem;
+    min-width: 45rem;
+    color: #ffffff;
+  }
+
+  .modal-content {
+    background-image: url("../images/bk-contact-nhan-bao-gia.jpg");
+    background-position: 50% 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    .modal-header {
+      display: grid;
+      grid-gap: 1rem;
+      grid-template-columns: 1fr auto;
+
+      .modal-title {
+        color: #ffffff;
+      }
+
+      .btn-close-modal {
+        padding: 0;
+        color: #ffffff;
+        border: none;
+        background-color: transparent;
+      }
+    }
+
+    .modal-body {
+      .wpcf7-form {
+        @media (min-width: 768px) {
+          max-width: 38.6rem;
+          margin: 0 auto;
+        }
+
+        .wpcf7-form-control-wrap {
+          input {
+            &:not([type="checkbox"]) {
+              padding: 1rem;
+              color: #000000;
+              border: 2px solid #2fa178;
+            }
+          }
+
+          .wpcf7-checkbox {
+            display: grid;
+            padding: .6rem;
+            border: .2rem solid #2fa178;
+            background-color: #ffffff;
+
+            .wpcf7-list-item {
+              margin-left: 0;
+
+              ~ .wpcf7-list-item {
+                margin-top: .8rem;
+              }
+
+              label {
+                margin: 0;
+                display: grid;
+                grid-gap: .6rem;
+                grid-template-columns: 1.6rem 1fr;
+              }
+            }
+
+            .wpcf7-list-item-label {
+              color: #000000;
+              font-size: 1.4rem;
+            }
+          }
+        }
+
+        .wpcf7-submit {
+          padding: 1.2rem 1rem;
+          width: 100%;
+          color: #000000;
+          font-weight: 700;
+          border-radius: 1rem;
+          background-color: #ffb453;
+        }
+
+        .wpcf7-not-valid-tip {
+          color: #ffffff;
+        }
+      }
+
+      .note-modal {
+        margin-top: 4rem;
+        padding: 2rem 0;
+        text-align: center;
+        font-size: 1.4rem;
+        color: #ffde88;
       }
     }
   }
