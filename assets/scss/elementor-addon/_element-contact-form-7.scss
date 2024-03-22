@@ -20,7 +20,14 @@
       .heading {
         text-align: center;
         color: #ffffff;
-        font-size: 3rem;
+
+        @media (min-width: 992px) {
+          font-size: 3rem;
+        }
+
+        @media (max-width: 991px) {
+          font-size: 2rem;
+        }
       }
 
       .list {
@@ -47,7 +54,22 @@
         .grid {
           display: grid;
           grid-gap: .4rem;
-          grid-template-columns: 16rem 1fr;
+
+          @media (min-width: 992px) {
+            grid-template-columns: 16rem 1fr;
+          }
+
+          @media (min-width: 768px) and (max-width: 991px) {
+            grid-template-columns: 11rem 1fr;
+          }
+
+          @media (min-width: 576px) and (max-width: 767px) {
+            grid-template-columns: 16rem 1fr;
+          }
+
+          @media (max-width: 575px) {
+            grid-template-columns: repeat(2, 1fr);
+          }
         }
 
         input {
@@ -85,7 +107,14 @@
           .wpcf7-checkbox {
             display: grid;
             grid-gap: .6rem;
-            grid-template-columns: repeat(2, 1fr);
+
+            @media (min-width: 1199px) {
+              grid-template-columns: repeat(2, 1fr);
+            }
+
+            @media (min-width: 576px) and (max-width: 767px) {
+              grid-template-columns: repeat(2, 1fr);
+            }
           }
         }
 

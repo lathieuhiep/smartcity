@@ -24,6 +24,9 @@ function smartcity_register_widget_elementor_addon( $widgets_manager ): void {
     require get_parent_theme_file_path( '/extension/elementor-addon/widgets/lightbox-image.php' );
     require get_parent_theme_file_path( '/extension/elementor-addon/widgets/tabs.php' );
     require get_parent_theme_file_path( '/extension/elementor-addon/widgets/project-list-2.php' );
+    require get_parent_theme_file_path( '/extension/elementor-addon/widgets/text-between-images.php' );
+    require get_parent_theme_file_path( '/extension/elementor-addon/widgets/text-flash.php' );
+    require get_parent_theme_file_path( '/extension/elementor-addon/widgets/safety-principles.php' );
 
 //	require get_parent_theme_file_path( '/extension/elementor-addon/widgets/slides.php' );
 //	require get_parent_theme_file_path( '/extension/elementor-addon/widgets/about-text.php' );
@@ -41,6 +44,9 @@ function smartcity_register_widget_elementor_addon( $widgets_manager ): void {
     $widgets_manager->register( new \SmartCity_Elementor_Lightbox_Image() );
     $widgets_manager->register( new \SmartCity_Elementor_Tabs() );
 	$widgets_manager->register( new \SmartCity_Elementor_Project_List_Style2() );
+	$widgets_manager->register( new \SmartCity_Elementor_Text_Between_Images() );
+	$widgets_manager->register( new \SmartCity_Elementor_Text_Flash() );
+	$widgets_manager->register( new \SmartCity_Elementor_Safety_Principles() );
 
 //	$widgets_manager->register( new \BasicTheme_Elementor_Slides() );
 //	$widgets_manager->register( new \BasicTheme_Elementor_About_Text() );
@@ -70,4 +76,12 @@ function smartcity_elementor_scripts(): void {
 
 		wp_enqueue_script( 'smartcity-elementor-script', get_theme_file_uri( '/extension/elementor-addon/js/elementor-addon.js' ), array( 'jquery' ), '1.0.0', true );
 	}
+}
+
+function addZeroBeforeNumber(int $number): int|string {
+	if ( $number < 10 ) {
+		return '0' . $number;
+	}
+
+	return $number;
 }
