@@ -29,6 +29,7 @@ function smartcity_register_widget_elementor_addon( $widgets_manager ): void {
     require get_parent_theme_file_path( '/extension/elementor-addon/widgets/safety-principles.php' );
     require get_parent_theme_file_path( '/extension/elementor-addon/widgets/button-modal-form.php' );
 	require get_parent_theme_file_path( '/extension/elementor-addon/widgets/slides.php' );
+	require get_parent_theme_file_path( '/extension/elementor-addon/widgets/image-box-grid.php' );
 
 
 //	require get_parent_theme_file_path( '/extension/elementor-addon/widgets/about-text.php' );
@@ -51,6 +52,7 @@ function smartcity_register_widget_elementor_addon( $widgets_manager ): void {
 	$widgets_manager->register( new \SmartCity_Elementor_Safety_Principles() );
 	$widgets_manager->register( new \SmartCity_Elementor_Button_Modal_Form() );
 	$widgets_manager->register( new \SmartCity_Elementor_Slides() );
+	$widgets_manager->register( new \SmartCity_Elementor_Image_Box_Grid() );
 
 
 //	$widgets_manager->register( new \BasicTheme_Elementor_About_Text() );
