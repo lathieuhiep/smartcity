@@ -6,7 +6,7 @@ use Elementor\Controls_Manager;
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-class BasicTheme_Elementor_Post_Carousel extends Widget_Base {
+class SmartCity_Elementor_Post_Carousel extends Widget_Base {
 
     public function get_categories(): array {
         return array( 'my-theme' );

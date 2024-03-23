@@ -1,0 +1,108 @@
+.modal-form-cf7 {
+  .modal-dialog {
+    max-width: 45rem;
+    min-width: 45rem;
+    color: #ffffff;
+  }
+
+  .modal-content {
+    overflow: hidden;
+    border-radius: 1rem;
+    background-color: #222222;
+
+    .modal-header {
+      position: relative;
+      padding: 3rem 1rem 1rem;
+      border-bottom: 0;
+      align-items: center;
+      justify-content: center;
+
+      .modal-title {
+        color: #ffffff;
+        font-size: 2rem;
+      }
+
+      .btn-close-modal {
+        padding: 0;
+        position: absolute;
+        top: .2rem;
+        right: 1rem;
+        color: #ffffff;
+        border: none;
+        background-color: transparent;
+      }
+    }
+
+    .modal-body {
+      .form-logo {
+        max-width: 16rem;
+        margin: 0 auto 1.2rem;
+      }
+
+      .wpcf7-form {
+        @media (min-width: 768px) {
+          max-width: 38.6rem;
+          margin: 0 auto;
+        }
+
+        .wpcf7-form-control-wrap {
+          input {
+            &:not([type="checkbox"]) {
+              padding: 1rem;
+              color: #000000;
+              border: 2px solid #2fa178;
+            }
+          }
+
+          .wpcf7-checkbox {
+            display: grid;
+            padding: .6rem;
+            border: .2rem solid #2fa178;
+            background-color: #ffffff;
+
+            .wpcf7-list-item {
+              margin-left: 0;
+
+              ~ .wpcf7-list-item {
+                margin-top: .8rem;
+              }
+
+              label {
+                margin: 0;
+                display: grid;
+                grid-gap: .6rem;
+                grid-template-columns: 1.6rem 1fr;
+              }
+            }
+
+            .wpcf7-list-item-label {
+              color: #000000;
+              font-size: 1.4rem;
+            }
+          }
+        }
+
+        .wpcf7-submit {
+          padding: 1.2rem 1rem;
+          width: 100%;
+          color: #000000;
+          font-weight: 700;
+          border-radius: 1rem;
+          background-color: #ffb453;
+        }
+
+        .wpcf7-not-valid-tip {
+          color: #ffffff;
+        }
+      }
+
+      .note-modal {
+        margin-top: 4rem;
+        padding: 2rem 0;
+        text-align: center;
+        font-size: 1.4rem;
+        color: #ffde88;
+      }
+    }
+  }
+}

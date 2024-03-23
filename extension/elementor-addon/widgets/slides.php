@@ -7,7 +7,7 @@ use Elementor\Controls_Manager;
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-class BasicTheme_Elementor_Slides extends Widget_Base {
+class SmartCity_Elementor_Slides extends Widget_Base {
     public function get_categories(): array {
         return array( 'my-theme' );
     }
@@ -983,7 +983,7 @@ class BasicTheme_Elementor_Slides extends Widget_Base {
                 $smartcity_slides_link = $item['link'];
             ?>
                 <div class="element-slides__item elementor-repeater-item-<?php echo esc_attr( $item['_id'] ); ?>">
-                    <div class="element-slides__item--bg"></div>
+                    <div class="element-slides__item--bg h-100"></div>
 
                     <div class="element-slides__item--inner">
                         <?php if ( $item['background_overlay'] == 'yes' ) : ?>

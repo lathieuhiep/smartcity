@@ -27,8 +27,10 @@ function smartcity_register_widget_elementor_addon( $widgets_manager ): void {
     require get_parent_theme_file_path( '/extension/elementor-addon/widgets/text-between-images.php' );
     require get_parent_theme_file_path( '/extension/elementor-addon/widgets/text-flash.php' );
     require get_parent_theme_file_path( '/extension/elementor-addon/widgets/safety-principles.php' );
+    require get_parent_theme_file_path( '/extension/elementor-addon/widgets/button-modal-form.php' );
+	require get_parent_theme_file_path( '/extension/elementor-addon/widgets/slides.php' );
 
-//	require get_parent_theme_file_path( '/extension/elementor-addon/widgets/slides.php' );
+
 //	require get_parent_theme_file_path( '/extension/elementor-addon/widgets/about-text.php' );
 //	require get_parent_theme_file_path( '/extension/elementor-addon/widgets/post-carousel.php' );
 //	require get_parent_theme_file_path( '/extension/elementor-addon/widgets/post-grid.php' );
@@ -47,8 +49,10 @@ function smartcity_register_widget_elementor_addon( $widgets_manager ): void {
 	$widgets_manager->register( new \SmartCity_Elementor_Text_Between_Images() );
 	$widgets_manager->register( new \SmartCity_Elementor_Text_Flash() );
 	$widgets_manager->register( new \SmartCity_Elementor_Safety_Principles() );
+	$widgets_manager->register( new \SmartCity_Elementor_Button_Modal_Form() );
+	$widgets_manager->register( new \SmartCity_Elementor_Slides() );
 
-//	$widgets_manager->register( new \BasicTheme_Elementor_Slides() );
+
 //	$widgets_manager->register( new \BasicTheme_Elementor_About_Text() );
 //	$widgets_manager->register( new \BasicTheme_Elementor_Post_Carousel() );
 //	$widgets_manager->register( new \BasicTheme_Elementor_Post_Grid() );

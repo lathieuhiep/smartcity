@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-class BasicTheme_Elementor_About_Text extends Widget_Base {
+class SmartCity_Elementor_About_Text extends Widget_Base {
     public function get_categories(): array {
         return array( 'my-theme' );
     }

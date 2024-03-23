@@ -1,15 +1,33 @@
 .element-contact-form-7 {
-  &.style-1 {
-    .warp {
-      color: #ffffff;
-      font-size: 1.4rem;
-      padding: 1.2rem;
-      border-radius: 2rem;
-      background-image: url("../images/bk-form.png");
-      background-repeat: no-repeat;
-      background-size: cover;
-      box-shadow: rgb(0, 0, 0) 5px 15px 20px -15px;
+  color: #ffffff;
+  border-radius: 2rem;
+  overflow: hidden;
+  background-color: #222222;
 
+  .warp {
+    position: relative;
+    z-index: 1;
+
+    .list {
+      .item {
+        display: grid;
+        grid-gap: 1.2rem;
+        grid-template-columns: 3.3rem 1fr;
+        align-items: center;
+
+        ~ .item {
+          margin-top: .8rem;
+        }
+      }
+    }
+  }
+
+  &.style-1 {
+    font-size: 1.4rem;
+    padding: 1.2rem;
+    box-shadow: rgb(0, 0, 0) 5px 15px 20px -15px;
+
+    .warp {
       .thumbnail-box {
         max-width: 22rem;
         margin: 0 auto 1.6rem;
@@ -31,20 +49,11 @@
       }
 
       .list {
-        margin: 0;
-        padding: 0;
-        list-style: none;
+        margin-bottom: 1.6rem;
 
         .item {
           font-weight: 700;
           text-decoration: underline;
-          display: grid;
-          grid-gap: 1.2rem;
-          grid-template-columns: 3.3rem 1fr;
-
-          ~ .item {
-            margin-top: .8rem;
-          }
         }
       }
 
@@ -137,6 +146,87 @@
       .note {
         margin-top: 1.6rem;
         font-style: italic;
+      }
+    }
+  }
+
+  &.style-2 {
+    position: relative;
+    padding: 3rem;
+    height: 100%;
+
+    &:after {
+      position: absolute;
+      content: "";
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+
+    .warp {
+      .heading {
+        margin-bottom: 1.5rem;
+        text-align: center;
+        font-size: 2.5rem;
+        color: #ffffff;
+      }
+
+      .list {
+        max-width: 23rem;
+        margin: 0 auto 2rem;
+      }
+
+      .wpcf7-form {
+        p {
+          &:has(.wpcf7-submit) {
+            margin-top: 4.6rem;
+          }
+        }
+
+        .wpcf7-form-control {
+          color: #000000;
+          background-color: #ffffff;
+
+          &.wpcf7-checkbox {
+            padding: 1.2rem;
+            display: flex;
+            gap: 1.6rem;
+            flex-wrap: wrap;
+
+            .wpcf7-list-item {
+              margin: 0;
+              flex: 0 0 auto;
+
+              label {
+                margin: 0;
+                display: grid;
+                grid-gap: .6rem;
+                grid-template-columns: 1.6rem 1fr;
+              }
+            }
+          }
+        }
+
+        .wpcf7-submit {
+          padding: 1rem 1.2rem;
+          display: block;
+          width: 100%;
+          color: #ffffff;
+          font-size: 1.8rem;
+          font-weight: 700;
+          background-color: #ff0404;
+        }
+      }
+
+      .note {
+        margin-top: 1.6rem;
+        font-size: 1.5rem;
+
+        a {
+          color: #ffffff;
+          text-decoration: underline;
+        }
       }
     }
   }

@@ -94,6 +94,19 @@ class SmartCity_Elementor_Project_List extends Widget_Base
 			]
 		);
 
+		$this->add_control(
+			'column',
+			[
+				'label' => esc_html__('Cột', 'clinic'),
+				'type' => Controls_Manager::SELECT,
+				'default' => 'column-4',
+				'options' => [
+					'column-3' => esc_html__('3 cột', 'clinic'),
+					'column-4' => esc_html__('4 cột', 'clinic'),
+				],
+			]
+		);
+
 		$repeater = new Repeater();
 
 		$repeater->add_control(
@@ -182,7 +195,7 @@ class SmartCity_Elementor_Project_List extends Widget_Base
 	?>
 		<div class="element-project-list style-1">
 			<?php if ( $settings['list'] ) : ?>
-				<div class="warp">
+				<div class="warp <?php echo esc_attr( $settings['column'] ); ?>">
 					<?php
                     foreach ($settings['list'] as $index => $item):
 	                    $link_key = 'link_' . $index;
