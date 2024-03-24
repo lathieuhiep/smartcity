@@ -1,6 +1,8 @@
 <?php
 
 use Elementor\Group_Control_Background;
+use Elementor\Group_Control_Border;
+use Elementor\Group_Control_Typography;
 use Elementor\Repeater;
 use Elementor\Utils;
 use Elementor\Widget_Base;
@@ -76,6 +78,18 @@ class SmartCity_Elementor_Contact_Form_7 extends Widget_Base {
             ]
         );
 
+		$this->add_control(
+			'show_list',
+			[
+				'label' => esc_html__( 'Hiển thị nội dung mô tả', 'textdomain' ),
+				'type' => Controls_Manager::SWITCHER,
+				'label_on' => esc_html__( 'Có', 'textdomain' ),
+				'label_off' => esc_html__( 'Không', 'textdomain' ),
+				'return_value' => 'yes',
+				'default' => 'yes',
+			]
+		);
+
         $this->end_controls_section();
 
         // List text
@@ -84,6 +98,9 @@ class SmartCity_Elementor_Contact_Form_7 extends Widget_Base {
             [
                 'label' => esc_html__( 'Nôi dung mô tả', 'smartcity' ),
                 'tab' => Controls_Manager::TAB_CONTENT,
+                'condition' => [
+	                'show_list' => 'yes',
+                ],
             ]
         );
 
@@ -163,6 +180,37 @@ class SmartCity_Elementor_Contact_Form_7 extends Widget_Base {
 
 		$this->end_controls_section();
 
+        // heading style
+		$this->start_controls_section(
+			'title_style_section',
+			[
+				'label' => esc_html__( 'Tiêu đề', 'smartcity' ),
+				'tab' => Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		$this->add_control(
+			'heading_color',
+			[
+				'label'     =>  esc_html__( 'Màu sắc', 'smartcity' ),
+				'type'      =>  Controls_Manager::COLOR,
+				'selectors' =>  [
+					'{{WRAPPER}} .element-contact-form-7 .warp .heading' => 'color: {{VALUE}}',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name' => 'heading_typography',
+				'label' => esc_html__( 'Typography', 'smartcity' ),
+				'selector' => '{{WRAPPER}} .element-contact-form-7 .warp .heading',
+			]
+		);
+
+		$this->end_controls_section();
+
 		// style form
 		$this->start_controls_section(
 			'style_form_section',
@@ -175,19 +223,47 @@ class SmartCity_Elementor_Contact_Form_7 extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
-				'name' => 'Background',
+				'name' => 'form_background',
 				'types' => [ 'classic', 'gradient' ],
 				'selector' => '{{WRAPPER}} .element-contact-form-7',
 			]
 		);
 
 		$this->add_control(
-			'background_overlay',
+			'form_background_overlay',
 			[
 				'label' => esc_html__( 'Background Overlay', 'smartcity' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .element-contact-form-7:after' => 'background-color: {{VALUE}}',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			[
+				'name' => 'form_border',
+				'selector' => '{{WRAPPER}} .element-contact-form-7',
+			]
+		);
+
+		$this->add_control(
+			'form_border_radius',
+			[
+				'label' => esc_html__( 'Border radius', 'textdomain' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'default' => [
+					'top' => '',
+					'right' => '',
+					'bottom' => '',
+					'left' => '',
+					'unit' => 'px',
+					'isLinked' => true,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .element-contact-form-7' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -210,7 +286,7 @@ class SmartCity_Elementor_Contact_Form_7 extends Widget_Base {
                     <?php echo esc_html( $settings['title'] ); ?>
                 </h3>
 
-                <?php if ( $settings['list'] ) : ?>
+                <?php if ( $settings['show_list'] && $settings['list'] ) : ?>
                     <ul class="list reset-list">
                         <?php foreach ( $settings['list'] as $item ): ?>
                         <li class="item elementor-repeater-item-<?php echo esc_attr( $item['_id'] ); ?>">
