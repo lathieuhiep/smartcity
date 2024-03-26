@@ -128,7 +128,7 @@
         }
 
         .wpcf7-submit {
-          padding: 1rem .6rem;
+          padding: 1rem .6rem 1rem 2.8rem;
           display: block;
           width: 100%;
           font-size: 1.3rem;
@@ -140,6 +140,27 @@
 
         .wpcf7-not-valid-tip {
           color: #ffffff;
+        }
+
+        p {
+          &:has(.wpcf7-submit) {
+            &:before {
+              position: absolute;
+              content: "\f019";
+              top: 0;
+              left: 2rem;
+              font-weight: 900;
+              font-size: 2.4rem;
+              color: #e41207;
+              font-family: "Font Awesome 6 Free", serif;
+              animation-name: fadeInDown;
+              animation-delay: 0s;
+              animation-duration: 1s;
+              animation-iteration-count: infinite;
+              transform: translateY(-50%);
+              animation: fadeInDown 1s ease forwards infinite;
+            }
+          }
         }
       }
 
