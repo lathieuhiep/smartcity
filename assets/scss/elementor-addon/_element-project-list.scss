@@ -101,6 +101,8 @@
         }
 
         .content {
+          padding: 0 1rem;
+
           ul {
             li {
               padding-left: 2.5rem;
@@ -156,9 +158,25 @@
             }
 
             &.detail {
+              position: relative;
               padding: .8rem 1.2rem;
               border-radius: 2rem;
               border: 1px solid #000;
+
+              &:before {
+                position: absolute;
+                content: "\f178";
+                top: 0;
+                left: -2rem;
+                font-weight: 900;
+                font-size: 2.8rem;
+                font-family: "Font Awesome 6 Free", serif;
+                transform: translateY(-50%);
+                animation-name: fadeInLeft;
+                animation-delay: 0s;
+                animation-duration: 1s;
+                animation-iteration-count: infinite;
+              }
             }
           }
         }
