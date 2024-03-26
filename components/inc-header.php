@@ -48,7 +48,7 @@ $phone = smartcity_get_option( 'opt_general_phone' );
         </div>
 
         <div class="contact-box d-flex align-items-center">
-            <a href="tel:<?php echo esc_attr( clinic_preg_replace_ony_number( $phone ) ); ?>">
+            <a href="tel:<?php echo esc_attr( clinic_preg_replace_ony_number( $phone ) ); ?>" class="zoom-in-out">
                 <i class="fa-solid fa-phone"></i>
                 <span><?php echo esc_html( $phone ); ?></span>
             </a>

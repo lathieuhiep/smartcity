@@ -79,15 +79,6 @@ if ( class_exists( 'CSF' ) ) {
 				'text_width' => 80,
 				'default'    => true
 			),
-
-            // phone
-            array(
-                'id'      => 'opt_general_phone',
-                'type'    => 'text',
-                'title'   => 'Text',
-                'default' => '1234567890'
-            ),
-
         )
 	) );
 
@@ -107,28 +98,80 @@ if ( class_exists( 'CSF' ) ) {
 				'text_width' => 80,
 				'default'    => true
 			),
+
+			array(
+				'id'     => 'opt_menu_color',
+				'type'   => 'color',
+				'title'  => esc_html__('Màu menu', 'smartcity'),
+				'output' => '.site-navigation__menu > ul > li > a'
+			),
+
+			array(
+				'id'     => 'opt_menu_color_hover',
+				'type'   => 'color',
+				'title'  => esc_html__('Màu menu khi hover'),
+				'output' => '.site-navigation__menu ul li a:hover'
+			),
+
+			array(
+				'id'    => 'opt_menu_background',
+				'type'  => 'color',
+				'title' => esc_html__('Màu nền', 'smartcity'),
+				'output_mode' => 'background',
+				'output' => '.global-header'
+			),
 		)
 	) );
 
-	//
 	// Create a section contact
 	CSF::createSection( $smartcity_prefix, array(
-		'title'  => esc_html__( 'Contact', 'smartcity' ),
-		'icon'   => 'fas fa-bars',
+		'title'  => esc_html__( 'Liên hệ', 'smartcity' ),
+		'icon'   => 'fas fa-phone',
 		'fields' => array(
+			// phone
 			array(
-				'id'     => 'opt_contact_list',
-				'type'   => 'repeater',
-				'title'  => esc_html__('Danh sách form liên hệ'),
+				'id'      => 'opt_general_phone',
+				'type'    => 'text',
+				'title'   => esc_html__('Điện thoại', 'smartcity'),
+				'default' => '0942.136.155'
+			),
+
+			array(
+				'id'     => 'opt_style_phone_menu',
+				'type'   => 'fieldset',
+				'title'  => esc_html__('Hiển thị trên menu'),
 				'fields' => array(
 					array(
-						'id'          => 'contact',
-						'type'        => 'select',
-						'title'       => 'Select',
-						'options'     => smartcity_get_form_cf7()
+						'id'     => 'icon_color',
+						'type'   => 'color',
+						'title'  => esc_html__('Màu icon', 'smartcity'),
+						'output' => '.site-navigation .contact-box a i'
+					),
+
+					array(
+						'id'     => 'phone_color',
+						'type'   => 'color',
+						'title'  => esc_html__('Màu số điện thoại', 'smartcity'),
+						'output' => '.site-navigation .contact-box a'
+					),
+
+					array(
+						'id'     => 'phone_border',
+						'type'   => 'border',
+						'title'  => esc_html__('Đường viền', 'smartcity'),
+						'output' => '.site-navigation .contact-box a'
+					),
+
+					array(
+						'id'    => 'phone_background',
+						'type'  => 'color',
+						'title' => esc_html__('Màu nền', 'smartcity'),
+						'output_mode' => 'background',
+						'output' => '.site-navigation .contact-box a'
 					),
 				),
 			),
+
 		)
 	) );
 
