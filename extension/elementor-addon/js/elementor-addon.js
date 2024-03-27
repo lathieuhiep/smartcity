@@ -18,6 +18,11 @@
 
         /* Element carousel images */
         elementorFrontend.hooks.addAction('frontend/element_ready/smartcity-carousel-images.default', ElementCarouselSlider);
+
+        /* custom menu anchor */
+        elementorFrontend.hooks.addFilter( 'frontend/handlers/menu_anchor/scroll_top_distance', function( scrollTop ) {
+            return scrollTop - 115;
+        } );
     });
 
 })(jQuery);

@@ -262,3 +262,21 @@ pre {
     transform: translateX(0);
   }
 }
+
+.chat-with-us {
+  position: fixed;
+  right: 1.6rem;
+  z-index: 99;
+  display: grid;
+  grid-row-gap: 1.2rem;
+  grid-template-columns: 4rem;
+  align-items: center;
+
+  @media (min-width: 992px) {
+    bottom: 10rem;
+  }
+
+  @media (max-width: 991px) {
+    bottom: 10rem;
+  }
+}

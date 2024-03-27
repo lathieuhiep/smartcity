@@ -266,7 +266,7 @@ function smartcity_get_social_url(): void {
 }
 
 // Format number
-function clinic_preg_replace_ony_number($string): string|null
+function smartcity_preg_replace_ony_number($string): string|null
 {
     $number = '';
 

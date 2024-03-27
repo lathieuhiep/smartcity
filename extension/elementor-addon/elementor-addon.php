@@ -2,6 +2,8 @@
 // Register Category Elementor Addon
 use Elementor\Plugin;
 
+add_filter('frontend/handlers/menu_anchor/scroll_top', '__return_false');
+
 // create category
 add_action( 'elementor/elements/categories_registered', 'smartcity_add_elementor_widget_categories' );
 function smartcity_add_elementor_widget_categories( $elements_manager ): void {

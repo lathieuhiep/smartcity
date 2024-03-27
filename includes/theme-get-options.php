@@ -1,8 +1,15 @@
 <?php
-// get option contact list
-function smartcity_get_opt_contact_list()
+// get chat zalo
+function smartcity_get_opt_chat_zalo()
 {
-	$contact_list = smartcity_get_option('opt_contact_list');
-
-	var_dump($contact_list);
+	return smartcity_get_option('opt_contact_zalo');
 }
+
+
+// get link chat
+function smartcity_get_opt_link_chat_messenger()
+{
+	return smartcity_get_option('opt_contact_messenger');
+}
+
+

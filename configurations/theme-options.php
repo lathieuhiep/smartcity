@@ -172,6 +172,36 @@ if ( class_exists( 'CSF' ) ) {
 				),
 			),
 
+			// zalo
+			array(
+				'id'     => 'opt_contact_zalo',
+				'type'   => 'fieldset',
+				'title'  => esc_html__('ZaLo', 'clinic'),
+				'fields' => array(
+					array(
+						'id'    => 'phone',
+						'type'  => 'text',
+						'title' => esc_html__( 'Số điện thoại', 'clinic' ),
+						'default' => '0942.136.155',
+					),
+
+					array(
+						'id'    => 'qr_code',
+						'type'  => 'text',
+						'title' => esc_html__( 'Mã QR', 'clinic' ),
+						'default' => '',
+						'desc' => esc_html__('Link quét lấy mã:', 'clinic') . ' https://pageloot.com/vi/quet-ma-qr/'
+					),
+				),
+			),
+
+			// chat messenger
+			array(
+				'id'      => 'opt_contact_messenger',
+				'type'    => 'text',
+				'title'   => esc_html__( 'Link messenger', 'clinic' ),
+				'default' => '#',
+			),
 		)
 	) );
 

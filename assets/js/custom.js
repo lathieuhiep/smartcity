@@ -44,7 +44,6 @@
         /* Start Gallery Single */
         $( document ).general_owlCarousel_custom( '.site-post-slides' );
         /* End Gallery Single */
-
     });
 
     // loading
