@@ -89,6 +89,12 @@
           font-weight: 700;
           border-radius: 1rem;
           background-color: #ffb453;
+          @include transition();
+
+          &:hover {
+            color: #ffffff;
+            background-color: #00403A;
+          }
         }
 
         .wpcf7-not-valid-tip {

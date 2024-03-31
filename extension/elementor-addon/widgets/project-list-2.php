@@ -395,6 +395,28 @@ class SmartCity_Elementor_Project_List_Style2 extends Widget_Base
 			]
 		);
 
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name' => 'button_typography',
+				'label' => esc_html__( 'Typography', 'smartcity' ),
+				'selector' => '{{WRAPPER}} .element-project-list .warp .item .actions .btn',
+			]
+		);
+
+        // style tabs
+		$this->start_controls_tabs(
+			'style_tabs'
+		);
+
+		// style normal tab
+		$this->start_controls_tab(
+			'style_normal_tab',
+			[
+				'label' => esc_html__( 'Normal', 'textdomain' ),
+			]
+		);
+
 		$this->add_control(
 			'button_color',
 			[
@@ -403,15 +425,6 @@ class SmartCity_Elementor_Project_List_Style2 extends Widget_Base
 				'selectors' =>  [
 					'{{WRAPPER}} .element-project-list .warp .item .actions .btn' => 'color: {{VALUE}}',
 				],
-			]
-		);
-
-		$this->add_group_control(
-			Group_Control_Typography::get_type(),
-			[
-				'name' => 'button_typography',
-				'label' => esc_html__( 'Typography', 'smartcity' ),
-				'selector' => '{{WRAPPER}} .element-project-list .warp .item .actions .btn',
 			]
 		);
 
@@ -425,6 +438,42 @@ class SmartCity_Elementor_Project_List_Style2 extends Widget_Base
 				],
 			]
 		);
+
+		$this->end_controls_tab();
+
+        // style hover tab
+		$this->start_controls_tab(
+			'style_hover_tab',
+			[
+				'label' => esc_html__( 'Hover', 'textdomain' ),
+			]
+		);
+
+		$this->add_control(
+			'button_color_hover',
+			[
+				'label'     =>  esc_html__( 'Color', 'smartcity' ),
+				'type'      =>  Controls_Manager::COLOR,
+				'selectors' =>  [
+					'{{WRAPPER}} .element-project-list .warp .item:hover .actions .btn' => 'color: {{VALUE}}',
+				],
+			]
+		);
+
+		$this->add_control(
+			'button_background_color_hover',
+			[
+				'label'     =>  esc_html__( 'Background color', 'smartcity' ),
+				'type'      =>  Controls_Manager::COLOR,
+				'selectors' =>  [
+					'{{WRAPPER}} .element-project-list .warp .item:hover .actions .btn' => 'background-color: {{VALUE}}',
+				],
+			]
+		);
+
+		$this->end_controls_tab();
+
+		$this->end_controls_tabs();
 
 		$this->end_controls_section();
 

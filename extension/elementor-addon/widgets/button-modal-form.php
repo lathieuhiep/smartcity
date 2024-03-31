@@ -127,6 +127,27 @@ class SmartCity_Elementor_Button_Modal_Form extends Widget_Base {
 			]
 		);
 
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name' => 'list_number_typography',
+				'selector' => '{{WRAPPER}} .element-btn-modal-form .btn',
+			]
+		);
+
+		// style tabs
+		$this->start_controls_tabs(
+			'style_tabs'
+		);
+
+		// style normal tab
+		$this->start_controls_tab(
+			'style_normal_tab',
+			[
+				'label' => esc_html__( 'Normal', 'textdomain' ),
+			]
+		);
+
 		$this->add_control(
 			'button_color',
 			[
@@ -139,14 +160,6 @@ class SmartCity_Elementor_Button_Modal_Form extends Widget_Base {
 		);
 
 		$this->add_group_control(
-			Group_Control_Typography::get_type(),
-			[
-				'name' => 'list_number_typography',
-				'selector' => '{{WRAPPER}} .element-btn-modal-form .btn',
-			]
-		);
-
-		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
 				'name' => 'button_background',
@@ -154,6 +167,40 @@ class SmartCity_Elementor_Button_Modal_Form extends Widget_Base {
 				'selector' => '{{WRAPPER}} .element-btn-modal-form .btn',
 			]
 		);
+
+		$this->end_controls_tab();
+
+		// style hover tab
+		$this->start_controls_tab(
+			'style_hover_tab',
+			[
+				'label' => esc_html__( 'Hover', 'textdomain' ),
+			]
+		);
+
+		$this->add_control(
+			'button_color_hover',
+			[
+				'label' => esc_html__( 'Color', 'smartcity' ),
+				'type' => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .element-btn-modal-form .btn:hover' => 'color: {{VALUE}}',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
+			[
+				'name' => 'button_background_hover',
+				'types' => [ 'classic', 'gradient' ],
+				'selector' => '{{WRAPPER}} .element-btn-modal-form .btn:hover',
+			]
+		);
+
+		$this->end_controls_tab();
+
+		$this->end_controls_tabs();
 
 		$this->end_controls_section();
 
