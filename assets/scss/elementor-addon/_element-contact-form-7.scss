@@ -239,6 +239,12 @@
           font-size: 1.8rem;
           font-weight: 700;
           background-color: #ff0404;
+          @include transition();
+
+          &:hover {
+            color: #000000;
+            background-color: #f9d423;
+          }
         }
       }
 

@@ -55,6 +55,12 @@
           }
         }
       }
+
+      .actions {
+        p {
+          @include transition();
+        }
+      }
     }
   }
 
@@ -168,6 +174,7 @@
                 content: "\f178";
                 top: 0;
                 left: -2rem;
+                color: #000000;
                 font-weight: 900;
                 font-size: 2.8rem;
                 font-family: "Font Awesome 6 Free", serif;
@@ -176,6 +183,23 @@
                 animation-delay: 0s;
                 animation-duration: 1s;
                 animation-iteration-count: infinite;
+              }
+            }
+          }
+        }
+
+        &:hover {
+          .actions {
+            p {
+              &.sell {
+                color: #000000;
+                background-color: $secondary-color;
+              }
+
+              &.detail {
+                color: #ffffff;
+                border-color: #ff0404;
+                background-color: #ff0404;
               }
             }
           }
@@ -236,6 +260,16 @@
             border: none;
             border-radius: 1rem;
             background-color: #F9D423FF;
+            @include transition();
+          }
+        }
+
+        &:hover {
+          .actions {
+            .btn {
+              color: #ffffff;
+              background-color: #043e31;
+            }
           }
         }
       }

@@ -15,6 +15,13 @@
         border-radius: 1.8rem;
         box-shadow: 0 .4rem .4rem 0 rgba(0,0,0,0.25);
         background-color: #ffb453;
+        @include transition();
+
+        &.active,
+        &:hover {
+          color: #ffffff;
+          background-color: #222222;
+        }
       }
     }
   }
