@@ -89,6 +89,19 @@ class SmartCity_Elementor_Button_Modal_Form extends Widget_Base {
 			]
 		);
 
+		$this->add_control(
+			'show_popup_form',
+			[
+				'label' => esc_html__( 'Đã dùng form này rồi', 'smartcity' ),
+				'type' => Controls_Manager::SWITCHER,
+				'description' => esc_html__( 'Nếu đã dùng cùng một form trên trang thì sử dụng cái này để tránh bị lặp lại popup', 'smartcity' ),
+				'label_on' => esc_html__( 'Có', 'smartcity' ),
+				'label_off' => esc_html__( 'Không', 'smartcity' ),
+				'return_value' => 'yes',
+				'default' => 'yes',
+			]
+		);
+
 		$this->end_controls_section();
 
 		// Style button
@@ -228,11 +241,7 @@ class SmartCity_Elementor_Button_Modal_Form extends Widget_Base {
 	protected function render(): void {
 		$settings = $this->get_settings_for_display();
 
-		$id_modal = 'btn-modal-form';
-		if ( $settings['shortcode_form'] ) :
-			$id_int = substr( $this->get_id_int(), 0, 3 );
-			$id_modal = 'btn-modal-form-' . $id_int;
-		endif;
+		$id_modal = 'btn-modal-form-' . $settings['shortcode_form'];
     ?>
 
 		<div class="element-btn-modal-form">
@@ -243,7 +252,7 @@ class SmartCity_Elementor_Button_Modal_Form extends Widget_Base {
 			</div>
 		</div>
 
-		<?php if ( $settings['shortcode_form'] ) : ?>
+		<?php if ( $settings['shortcode_form'] && $settings['show_popup_form'] == '' ) : ?>
             <!-- Modal -->
             <div class="modal fade modal-form-cf7" id="<?php echo esc_attr( $id_modal ); ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">

@@ -204,7 +204,7 @@ class SmartCity_Elementor_Project_List_Style2 extends Widget_Base
 		$this->add_control(
 			'shortcode_form',
 			[
-				'label' => esc_html__('Select Form', 'smartcity'),
+				'label' => esc_html__('Chọn form liên hệ', 'smartcity'),
 				'type' => Controls_Manager::SELECT,
 				'label_block' => true,
 				'options' => smartcity_get_form_cf7(),
@@ -213,22 +213,15 @@ class SmartCity_Elementor_Project_List_Style2 extends Widget_Base
 		);
 
 		$this->add_control(
-			'list',
+			'show_popup_form',
 			[
-				'label' => esc_html__( 'Danh sách', 'clinic' ),
-				'type' => Controls_Manager::REPEATER,
-				'fields' => $repeater->get_controls(),
-				'default' => [
-					[
-						'list_title' => esc_html__( 'Title #1', 'clinic' ),
-						'list_content' => esc_html__( 'Item content. Click the edit button to change this text.', 'clinic' ),
-					],
-					[
-						'list_title' => esc_html__( 'Title #2', 'clinic' ),
-						'list_content' => esc_html__( 'Item content. Click the edit button to change this text.', 'clinic' ),
-					],
-				],
-				'title_field' => '{{{ list_title }}}',
+				'label' => esc_html__( 'Đã dùng form này rồi', 'smartcity' ),
+				'type' => Controls_Manager::SWITCHER,
+                'description' => esc_html__( 'Nếu đã dùng cùng một form trên trang thì sử dụng cái này để tránh bị lặp lại popup', 'smartcity' ),
+				'label_on' => esc_html__( 'Có', 'smartcity' ),
+				'label_off' => esc_html__( 'Không', 'smartcity' ),
+				'return_value' => 'yes',
+				'default' => 'yes',
 			]
 		);
 
@@ -265,7 +258,7 @@ class SmartCity_Elementor_Project_List_Style2 extends Widget_Base
 		$this->add_control(
 			'item_border_radius',
 			[
-				'label' => esc_html__( 'Border radius', 'textdomain' ),
+				'label' => esc_html__( 'Border radius', 'smartcity' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'default' => [
@@ -367,7 +360,7 @@ class SmartCity_Elementor_Project_List_Style2 extends Widget_Base
 		$this->add_control(
 			'content_border_radius',
 			[
-				'label' => esc_html__( 'Border radius', 'textdomain' ),
+				'label' => esc_html__( 'Border radius', 'smartcity' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'default' => [
@@ -413,7 +406,7 @@ class SmartCity_Elementor_Project_List_Style2 extends Widget_Base
 		$this->start_controls_tab(
 			'style_normal_tab',
 			[
-				'label' => esc_html__( 'Normal', 'textdomain' ),
+				'label' => esc_html__( 'Normal', 'smartcity' ),
 			]
 		);
 
@@ -445,7 +438,7 @@ class SmartCity_Elementor_Project_List_Style2 extends Widget_Base
 		$this->start_controls_tab(
 			'style_hover_tab',
 			[
-				'label' => esc_html__( 'Hover', 'textdomain' ),
+				'label' => esc_html__( 'Hover', 'smartcity' ),
 			]
 		);
 
@@ -508,12 +501,7 @@ class SmartCity_Elementor_Project_List_Style2 extends Widget_Base
 	protected function render(): void
 	{
 		$settings = $this->get_settings_for_display();
-
-		$id_modal = 'btn-modal-form';
-		if ( $settings['shortcode_form'] ) :
-			$id_int = substr( $this->get_id_int(), 0, 3 );
-			$id_modal = 'btn-modal-form-' . $id_int;
-		endif;
+		$id_modal = 'btn-modal-form-' . $settings['shortcode_form'];
 	?>
 		<div class="element-project-list style-2">
 			<?php if ( $settings['list'] ) : ?>
@@ -545,7 +533,7 @@ class SmartCity_Elementor_Project_List_Style2 extends Widget_Base
 			<?php endif; ?>
 		</div>
 
-		<?php if ( $settings['shortcode_form'] ) : ?>
+		<?php if ( $settings['shortcode_form'] && $settings['show_popup_form'] == '' ) : ?>
         <!-- Modal -->
         <div class="modal fade modal-form-cf7" id="<?php echo esc_attr( $id_modal ); ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
