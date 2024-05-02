@@ -81,10 +81,10 @@ class SmartCity_Elementor_Contact_Form_7 extends Widget_Base {
 		$this->add_control(
 			'show_list',
 			[
-				'label' => esc_html__( 'Hiển thị nội dung mô tả', 'textdomain' ),
+				'label' => esc_html__( 'Hiển thị nội dung mô tả', 'smartcity' ),
 				'type' => Controls_Manager::SWITCHER,
-				'label_on' => esc_html__( 'Có', 'textdomain' ),
-				'label_off' => esc_html__( 'Không', 'textdomain' ),
+				'label_on' => esc_html__( 'Có', 'smartcity' ),
+				'label_off' => esc_html__( 'Không', 'smartcity' ),
 				'return_value' => 'yes',
 				'default' => 'yes',
 			]
@@ -251,7 +251,7 @@ class SmartCity_Elementor_Contact_Form_7 extends Widget_Base {
 		$this->add_control(
 			'form_border_radius',
 			[
-				'label' => esc_html__( 'Border radius', 'textdomain' ),
+				'label' => esc_html__( 'Border radius', 'smartcity' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'default' => [
