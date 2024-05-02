@@ -280,3 +280,107 @@ pre {
     bottom: 10rem;
   }
 }
+
+.alo-circle-anim {
+  -webkit-animation: coccoc-alo-circle-img-anim 1s infinite ease-in-out;
+  -moz-animation: coccoc-alo-circle-img-anim 1s infinite ease-in-out;
+  -ms-animation: coccoc-alo-circle-img-anim 1s infinite ease-in-out;
+  -o-animation: coccoc-alo-circle-img-anim 1s infinite ease-in-out;
+  animation: coccoc-alo-circle-img-anim 1s infinite ease-in-out;
+}
+
+@-moz-keyframes coccoc-alo-circle-img-anim {
+  0% {
+    transform: rotate(0) scale(1) skew(1deg)
+  }
+  10% {
+    transform: rotate(-25deg) scale(1) skew(1deg)
+  }
+  20% {
+    transform: rotate(25deg) scale(1) skew(1deg)
+  }
+  30% {
+    transform: rotate(-25deg) scale(1) skew(1deg)
+  }
+  40% {
+    transform: rotate(25deg) scale(1) skew(1deg)
+  }
+  50% {
+    transform: rotate(0) scale(1) skew(1deg)
+  }
+  100% {
+    transform: rotate(0) scale(1) skew(1deg)
+  }
+}
+
+@-webkit-keyframes coccoc-alo-circle-img-anim {
+  0% {
+    transform: rotate(0) scale(1) skew(1deg)
+  }
+  10% {
+    transform: rotate(-25deg) scale(1) skew(1deg)
+  }
+  20% {
+    transform: rotate(25deg) scale(1) skew(1deg)
+  }
+  30% {
+    transform: rotate(-25deg) scale(1) skew(1deg)
+  }
+  40% {
+    transform: rotate(25deg) scale(1) skew(1deg)
+  }
+  50% {
+    transform: rotate(0) scale(1) skew(1deg)
+  }
+  100% {
+    transform: rotate(0) scale(1) skew(1deg)
+  }
+}
+
+@-o-keyframes coccoc-alo-circle-img-anim {
+  0% {
+    transform: rotate(0) scale(1) skew(1deg)
+  }
+  10% {
+    transform: rotate(-25deg) scale(1) skew(1deg)
+  }
+  20% {
+    transform: rotate(25deg) scale(1) skew(1deg)
+  }
+  30% {
+    transform: rotate(-25deg) scale(1) skew(1deg)
+  }
+  40% {
+    transform: rotate(25deg) scale(1) skew(1deg)
+  }
+  50% {
+    transform: rotate(0) scale(1) skew(1deg)
+  }
+  100% {
+    transform: rotate(0) scale(1) skew(1deg)
+  }
+}
+
+@keyframes coccoc-alo-circle-img-anim {
+  0% {
+    transform: rotate(0) scale(1) skew(1deg)
+  }
+  10% {
+    transform: rotate(-25deg) scale(1) skew(1deg)
+  }
+  20% {
+    transform: rotate(25deg) scale(1) skew(1deg)
+  }
+  30% {
+    transform: rotate(-25deg) scale(1) skew(1deg)
+  }
+  40% {
+    transform: rotate(25deg) scale(1) skew(1deg)
+  }
+  50% {
+    transform: rotate(0) scale(1) skew(1deg)
+  }
+  100% {
+    transform: rotate(0) scale(1) skew(1deg)
+  }
+}
